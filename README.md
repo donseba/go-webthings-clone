@@ -318,27 +318,12 @@ With the tag it always uses its built-in encoder. `file bin/website` should
 say "statically linked" for a Linux build; `go version -m bin/website` shows
 the tags it was built with.
 
-## Building elsewhere
+## A change of go-webthings
 
-Until go-webthings has a tagged release, `go.mod` builds against a checkout
-next to this folder (`replace github.com/donseba/go-webthings => ../go-webthings`).
-To build somewhere else, either clone go-webthings beside your site:
-
-```sh
-git clone https://github.com/donseba/go-webthings ../go-webthings
-```
-
-or point the replace at your checkout, for example
-`go mod edit -replace github.com/donseba/go-webthings=/src/go-webthings`.
-A container build needs that checkout inside its build context. Once
-go-webthings is tagged, remove the `replace` line and run
-`go get github.com/donseba/go-webthings@<version>`.
-
-For now go-webthings itself builds only against development branches of
-go-partial, go-router, go-form, go-importmap and go-translator, in a Go
-workspace; its
-README names them under
-[Development](https://github.com/donseba/go-webthings#development). Build
-this site in that workspace too.
+`go.mod` requires a released go-webthings, so the site builds anywhere. To
+try a change of go-webthings in your site before it is released, check
+go-webthings out next to it and build both in a Go workspace; see
+[Development](https://github.com/donseba/go-webthings#development) in
+go-webthings' README.
 
 After copying, change the module path in `go.mod`.
