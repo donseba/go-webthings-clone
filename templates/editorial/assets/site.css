@@ -1,0 +1,806 @@
+/*
+ * Editorial: one column of text under a newspaper masthead.
+ *
+ * Plain CSS, no build step, system fonts only. Colours are custom
+ * properties: light by default, dark when the visitor's system prefers it.
+ * The theme's settings arrive as attributes of <html> (layout.gohtml):
+ * data-accent picks the accent colour, data-text the typeface of the text.
+ * webthings.css lays out the module components; its --wt-* properties take
+ * the colours below.
+ */
+
+/* Colours and type ------------------------------------------------------ */
+
+:root {
+    --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, "Iowan Old Style", Georgia, serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --text-font: var(--serif);
+
+    --paper: #fbfaf7;
+    --ink: #1b1b1a;
+    --muted: #5d5b55;
+    --rule: #d9d5cc;
+    --surface: #f2efe8;
+    --accent: #b93c0b;
+
+    /* The width of the text column; the theme setting "measure" sets it
+       in the values stylesheet ({{themeStyle}}), which comes after. */
+    --measure: 42rem;
+    --gutter: 1rem;
+
+    --wt-accent: var(--accent);
+    --wt-accent-text: var(--paper);
+    --wt-border: var(--rule);
+    --wt-muted: var(--muted);
+    --wt-surface: var(--surface);
+    --wt-bar: var(--rule);
+    --wt-radius: 0;
+    --wt-gap: 1rem;
+    --wt-field-width: 100%;
+    --wt-error: #a61b1b;
+
+    color-scheme: light dark;
+}
+
+:root[data-accent="ink"] { --accent: #1d4ed8; }
+:root[data-accent="forest"] { --accent: #2f6b3a; }
+:root[data-accent="plum"] { --accent: #7e3a8a; }
+:root[data-text="sans"] { --text-font: var(--sans); }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --paper: #151514;
+        --ink: #ebe9e3;
+        --muted: #a9a59c;
+        --rule: #3b3a36;
+        --surface: #1f1e1c;
+        --accent: #ff9468;
+        --wt-error: #ff8a80;
+    }
+
+    :root[data-accent="ink"] { --accent: #93b4ff; }
+    :root[data-accent="forest"] { --accent: #86c992; }
+    :root[data-accent="plum"] { --accent: #d9a2e6; }
+}
+
+/* Base ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--text-font);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 1.4rem + 3vw, 3rem);
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* The heading site.js focuses after a navigation needs no ring. */
+[tabindex="-1"]:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.skip-link {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 10;
+    padding: 0.5rem 0.75rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    transform: translateY(-200%);
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+/* Small capitals for everything that is not text: menus, dates, labels. */
+.kicker,
+.menu,
+.languages,
+.categories,
+.tags,
+.feeds,
+.pager,
+.section__title,
+.masthead__bar,
+.preview-bar,
+.editor,
+.colophon,
+.facts dt,
+.badge {
+    font-family: var(--sans);
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+}
+
+.kicker,
+.menu,
+.categories,
+.section__title,
+.facts dt,
+.badge {
+    text-transform: uppercase;
+}
+
+/* Masthead -------------------------------------------------------------- */
+
+.preview-bar {
+    margin: 0;
+    padding: 0.5rem var(--gutter);
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+}
+
+.preview-bar a {
+    color: inherit;
+}
+
+.masthead {
+    padding: 0 var(--gutter);
+    text-align: center;
+}
+
+.masthead__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.masthead__search {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: auto;
+}
+
+.masthead__search input {
+    width: 10rem;
+    min-width: 0;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: inherit;
+    font: inherit;
+}
+
+.masthead__search-button {
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    font: inherit;
+    cursor: pointer;
+}
+
+.masthead__title {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: clamp(2.25rem, 1.5rem + 4vw, 4rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+}
+
+.masthead__logo {
+    max-height: 4rem;
+    width: auto;
+}
+
+.masthead__tagline {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+    font-style: italic;
+}
+
+.languages ul,
+.menu__list,
+.menu__children,
+.categories ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.languages a {
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.languages a[aria-current] {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.menu {
+    position: relative;
+    max-width: 64rem;
+    margin: 1.5rem auto 0;
+    padding: 0.6rem 0;
+    border-top: 3px double var(--ink);
+    border-bottom: 1px solid var(--ink);
+}
+
+.menu__list {
+    justify-content: center;
+}
+
+.menu a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.menu a:hover,
+.menu a[aria-current] {
+    color: var(--accent);
+}
+
+.menu a[aria-current] {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4em;
+}
+
+/* The pages below a section show in a row under the menu, on that section's
+   pages only: its own link is then the current one. */
+.menu__children {
+    display: none;
+}
+
+.menu__item > a[aria-current] ~ .menu__children {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    justify-content: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--rule);
+    text-transform: none;
+}
+
+.menu:has(.menu__item > a[aria-current] ~ .menu__children) {
+    margin-bottom: 2.5rem;
+}
+
+.editor {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+    text-align: right;
+}
+
+.editor__link {
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* The column ------------------------------------------------------------ */
+
+.column {
+    max-width: calc(var(--measure) + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: 2.5rem var(--gutter) 3rem;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header--home h1 {
+    font-size: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
+}
+
+.kicker {
+    margin: 0 0 0.5rem;
+    color: var(--muted);
+}
+
+.kicker a {
+    color: inherit;
+}
+
+.kicker__place::before {
+    content: " · ";
+}
+
+.standfirst {
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.prose > :first-child {
+    margin-top: 0;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+    margin: 0 0 1.1em;
+}
+
+.prose h2,
+.prose h3 {
+    margin: 2rem 0 0.75rem;
+}
+
+.prose blockquote {
+    margin-left: 0;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--accent);
+    font-style: italic;
+}
+
+.prose img {
+    display: block;
+    margin: 1.5rem 0;
+}
+
+/* A post opens with a drop capital in the serif; its paragraph holds it,
+   so a short one does not push the next paragraph aside. */
+.post .prose > p:first-child {
+    display: flow-root;
+}
+
+.post .prose > p:first-child::first-letter {
+    float: left;
+    margin: 0.06em 0.08em 0 0;
+    font-family: var(--serif);
+    font-size: 3.4em;
+    font-weight: 700;
+    line-height: 0.8;
+    color: var(--accent);
+}
+
+.lead-image {
+    margin: 0 0 2rem;
+}
+
+.lead-image img {
+    display: block;
+    width: 100%;
+}
+
+.empty {
+    color: var(--muted);
+    font-style: italic;
+}
+
+/* Lists of posts, events and results ----------------------------------- */
+
+.section {
+    margin-top: 3rem;
+}
+
+.section__title {
+    margin: 0 0 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px double var(--ink);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.section__more {
+    margin: 1rem 0 0;
+    font-family: var(--sans);
+    font-size: 0.875rem;
+}
+
+.summary {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.summary__title {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.summary__title a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.summary__title a:hover {
+    color: var(--accent);
+}
+
+.summary__excerpt {
+    margin: 0.5rem 0 0;
+    color: var(--muted);
+}
+
+.summary__image {
+    display: block;
+    width: 100%;
+}
+
+@media (min-width: 40rem) {
+    .summary:has(.summary__image) {
+        grid-template-columns: 1fr 10rem;
+    }
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.75rem 0 0;
+}
+
+.tags a,
+.badge {
+    padding: 0.1rem 0.5rem;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.tags a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.categories {
+    margin: -1rem 0 1.5rem;
+}
+
+.categories a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.categories a[aria-current] {
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.4em;
+}
+
+.feeds,
+.pager {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin: 2rem 0 0;
+    color: var(--muted);
+}
+
+.results__count {
+    margin: 2rem 0 0;
+    color: var(--muted);
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.4rem 1.25rem;
+    margin: 0 0 2rem;
+}
+
+.facts dt {
+    padding-top: 0.25em;
+    color: var(--muted);
+}
+
+.facts dd {
+    margin: 0;
+}
+
+/* Forms, comments and components --------------------------------------- */
+
+.search-form {
+    display: grid;
+    gap: 0.5rem;
+    max-width: 32rem;
+}
+
+.search-form label {
+    font-family: var(--sans);
+    font-weight: 600;
+}
+
+.search-form__row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.search-form__row input {
+    flex: 1;
+    min-width: 0;
+}
+
+.wt-form__input {
+    background: var(--paper);
+}
+
+.wt-form__label,
+.wt-form__help,
+.wt-form__error,
+.wt-button,
+.wt-notice,
+.wt-meta {
+    font-family: var(--sans);
+}
+
+.wt-button {
+    padding: 0.6em 1.2em;
+    border: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.wt-button:disabled {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+.comments,
+.guestbook-form,
+.signup {
+    margin-top: 3rem;
+}
+
+.comment {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--rule);
+}
+
+.comment__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.25rem 0.75rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+}
+
+.comment__date {
+    color: var(--muted);
+}
+
+.comment__body > :last-child {
+    margin-bottom: 0;
+}
+
+.comment--reply {
+    margin: 1rem 0 0 1.5rem;
+    padding: 0 0 0 1rem;
+    border-bottom: 0;
+    border-left: 3px solid var(--rule);
+}
+
+.comment--staff {
+    border-left-color: var(--accent);
+}
+
+.comments__form {
+    margin-top: 2rem;
+}
+
+.post__footer {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+}
+
+.wt-share,
+.wt-poll,
+.wt-registration {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+}
+
+.wt-registration {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--surface);
+}
+
+/* Footer ---------------------------------------------------------------- */
+
+.colophon {
+    margin-top: 2rem;
+    padding: 0 var(--gutter) 2rem;
+    border-top: 3px double var(--ink);
+    color: var(--muted);
+    font-size: 0.875rem;
+    letter-spacing: 0;
+}
+
+/* The footer lines up with the column of text. */
+.colophon > * {
+    max-width: var(--measure);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.signup--footer {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 0;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink);
+}
+
+.signup__title {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.signup__intro > :first-child {
+    margin-top: 0;
+}
+
+.signup__intro > :last-child {
+    margin-bottom: 0;
+}
+
+/* The footer form is one row on wide screens: address and button. */
+.signup__form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 0.75rem;
+}
+
+.signup__form .wt-form__field {
+    flex: 1 1 14rem;
+}
+
+.colophon__columns {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 2rem;
+}
+
+@media (min-width: 40rem) {
+    .colophon__columns {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.colophon__name {
+    margin: 0 0 0.5rem;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.colophon address {
+    font-style: normal;
+}
+
+.colophon__profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.colophon__admin {
+    margin-top: 1.5rem;
+}
+
+/* Motion and print ------------------------------------------------------ */
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    .skip-link {
+        transition: transform 0.15s ease-out;
+    }
+}
+
+@media print {
+    .masthead__bar,
+    .menu,
+    .editor,
+    .comments,
+    .signup,
+    .wt-share,
+    .colophon {
+        display: none;
+    }
+
+    body {
+        background: none;
+        color: black;
+    }
+}

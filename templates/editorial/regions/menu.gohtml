@@ -1,0 +1,24 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+{{- /*
+    The sections of the site. Every item carries its ElementID, so an HTMX
+    navigation sends only the items whose Active changes, rather than the
+    whole menu. The pages below a section follow it in a list of their own,
+    shown on the section's pages only (site.css).
+*/ -}}
+<nav class="menu" id="menu" {{oobAttr}} aria-label="{{tl localizer "Sections"}}">
+    <ul class="menu__list">
+        {{range .Menu}}
+            <li class="menu__item">
+                <a id="{{.ElementID}}" href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a>
+
+                {{with .Children}}
+                    <ul class="menu__children">
+                        {{range .}}
+                            <li><a id="{{.ElementID}}" href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a></li>
+                        {{end}}
+                    </ul>
+                {{end}}
+            </li>
+        {{end}}
+    </ul>
+</nav>

@@ -1,0 +1,32 @@
+{{/* @model View github.com/donseba/go-webthings/frontend.View */}}
+{{- /*
+    The newsletter signup in the footer of every page, named after the
+    newsletter instance, so the form returns the visitor here (#newsletter).
+    It declares only the page, so every page answers a request aimed at
+    #newsletter with this fragment alone: posting with htmx swaps only this
+    box. The newsletter's own page shows the form itself.
+*/ -}}
+{{if ne View.Module "newsletter"}}
+    {{with newsletter "newsletter"}}
+        <section class="signup signup--footer" id="newsletter" aria-labelledby="newsletter-title">
+            <h2 class="signup__title" id="newsletter-title">{{.Title}}</h2>
+            {{with .Intro}}<div class="signup__intro">{{.}}</div>{{end}}
+
+            {{if eq .Result "check-mail"}}
+                <p class="wt-notice" role="status">{{tl localizer "Almost done: check your inbox and confirm your subscription."}}</p>
+            {{else}}
+                {{if eq .Result "throttled"}}
+                    <p class="wt-notice" role="status">{{tl localizer "Too many attempts. Please try again later."}}</p>
+                {{else if eq .Result "invalid"}}
+                    <p class="wt-notice" role="status">{{tl localizer "That did not work. Please check your e-mail address or link."}}</p>
+                {{end}}
+
+                {{form_open .Form "class" "signup__form" (submitAttrs runtime .Action "target" "#newsletter" "swap" "outerHTML")}}
+                    {{form_field .Form "locale" nil}}
+                    {{form_field .Form "email" nil}}
+                    <button class="wt-button" type="submit">{{tl localizer "Subscribe"}}</button>
+                {{form_close}}
+            {{end}}
+        </section>
+    {{end}}
+{{end}}

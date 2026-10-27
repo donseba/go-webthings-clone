@@ -1,0 +1,20 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.SearchView */}}
+<main id="content">
+    <form action="{{.URL}}" method="get" role="search">
+        <input type="search" name="q" value="{{.Query}}" aria-label="Search">
+        <button>Search</button>
+    </form>
+
+    {{if .Throttled}}
+        <p>{{tl localizer "Too many searches in a short time. Wait a moment and try again."}}</p>
+    {{else if .Query}}
+        {{range .Results}}
+            <article>
+                <h2><a href="{{.URL}}">{{.Title}}</a></h2>
+                {{with .Summary}}<p>{{.}}</p>{{end}}
+            </article>
+        {{else}}
+            <p>Nothing found for “{{.Query}}”.</p>
+        {{end}}
+    {{end}}
+</main>

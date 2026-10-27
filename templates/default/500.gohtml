@@ -1,0 +1,20 @@
+{{/* @dot github.com/donseba/go-partial/ext/errors.Data */}}
+{{/* @model View github.com/donseba/go-webthings/frontend.View */}}
+{{/* Shown on its own, without the layout, with status 500, when a template fails; never the error itself, which is in the log. .Message is go-partial's safe sentence, already in the page's language. */}}
+<!doctype html>
+<html lang="{{View.Locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{tl localizer "Something went wrong"}} · {{View.Site.Name}}</title>
+    <meta name="robots" content="noindex">
+    {{styles "webthings.css" "site.css"}}
+</head>
+<body>
+    <main id="content">
+        <h1>{{tl localizer "Something went wrong"}}</h1>
+        <p>{{.Message}}</p>
+        <a href="{{View.Site.HomeURL}}">{{tl localizer "Back to the home page"}}</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.NotFound */}}
+{{- /* Shown with status 404; the layout's title is "Not found", translated. */ -}}
+<main id="content" class="column">
+    <header class="page-header">
+        <p class="kicker">404</p>
+        <h1>{{tl localizer "This page does not exist"}}</h1>
+        <p class="standfirst">{{tl localizer "It may have moved, or the address has a typo. Search for it, or start again from the front page."}}</p>
+    </header>
+
+    <form class="search-form" action="{{searchURL}}" method="get" role="search">
+        <label for="not-found-search">{{tl localizer "Search the site"}}</label>
+        <div class="search-form__row">
+            <input id="not-found-search" class="wt-form__input" type="search" name="q">
+            <button class="wt-button" type="submit">{{tl localizer "Search"}}</button>
+        </div>
+    </form>
+
+    <p><a href="{{.HomeURL}}">{{tl localizer "Back to the home page"}}</a></p>
+</main>

@@ -1,0 +1,36 @@
+{{/* @dot github.com/donseba/go-webthings/modules/events.Event */}}
+{{- /*
+    One event, in its own timezone, with the sign-up form of the
+    registrations instance once editors open sign-ups for it.
+*/ -}}
+<main id="content" class="column">
+    <article class="event">
+        <header class="page-header">
+            <p class="kicker">
+                <time datetime="{{.Start.Format "2006-01-02T15:04:05Z07:00"}}">{{template "partials/when.gohtml" .When}}</time>
+                {{if not .AllDay}}<span class="kicker__place">{{.Timezone}}</span>{{end}}
+            </p>
+            <h1>{{.Title}}</h1>
+            {{with .Summary}}<p class="standfirst">{{.}}</p>{{end}}
+        </header>
+
+        {{if .Location}}
+            <dl class="facts">
+                <dt>{{tl localizer "Where"}}</dt>
+                <dd>{{.Location}}{{with .Address}}<br>{{.}}{{end}}</dd>
+            </dl>
+        {{end}}
+
+        {{if .ImageURL}}
+            <figure class="lead-image">
+                <img src="{{.ImageURL}}" srcset="{{.ImageSrcset}}" sizes="(min-width: 46rem) 42rem, 100vw"
+                     width="{{.ImageWidth}}" height="{{.ImageHeight}}" alt="{{alt .ImageURL}}">
+            </figure>
+        {{end}}
+
+        <div class="prose">{{.Body}}</div>
+    </article>
+
+    {{/* Places, prices and the sign-up form: the registrations module's component. */}}
+    {{registrationForm "signup" .ID}}
+</main>

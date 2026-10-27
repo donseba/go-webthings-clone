@@ -1,0 +1,23 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.SearchView */}}
+{{- /*
+    The search results. On the search screen they render in place; a
+    request aimed at #results, from the search field, gets them with the
+    regions (head, languages, …) out of band, so the title and the
+    language links follow the query.
+*/ -}}
+<div class="results" id="results" aria-live="polite">
+    {{if .Throttled}}
+        <p class="wt-notice" role="status">{{tl localizer "Too many searches in a short time. Wait a moment and try again."}}</p>
+    {{else if .Query}}
+        <p class="results__count">{{tn localizer "%d result for “%s”" "%d results for “%s”" (len .Results) (len .Results) .Query}}</p>
+
+        {{range .Results}}
+            <article class="summary">
+                <div class="summary__text">
+                    <h2 class="summary__title"><a href="{{.URL}}">{{.Title}}</a></h2>
+                    {{with .Summary}}<p class="summary__excerpt">{{.}}</p>{{end}}
+                </div>
+            </article>
+        {{end}}
+    {{end}}
+</div>

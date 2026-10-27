@@ -1,0 +1,12 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.When */}}
+{{- /*
+    When something takes place, in the page's language and in its own
+    timezone: an event's .When, or a registration's .Subject.When.
+*/ -}}
+{{if .AllDay -}}
+    {{dateRange .Start .End "full"}}
+{{- else if .SameDay -}}
+    {{date .Start "full"}} · {{timeRange .Start .End}}
+{{- else -}}
+    {{date .Start "full"}}, {{time .Start}} – {{date .End "full"}}, {{time .End}}
+{{- end}}

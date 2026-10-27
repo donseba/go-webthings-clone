@@ -1,0 +1,7 @@
+{
+  "title": "Default",
+  "description": "The unstyled starting point: every field, no design.",
+  "settings": [
+    {"name": "accent", "label": {"en": "Accent colour", "nl": "Accentkleur"}, "type": "color", "default": "#2563eb", "css": "--accent"}
+  ]
+}

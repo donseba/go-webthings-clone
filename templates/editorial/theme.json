@@ -1,0 +1,9 @@
+{
+  "title": "Editorial",
+  "description": "Content first: one column of text, a newspaper masthead and system fonts only. Light or dark, as the visitor's system prefers. Links and forms swap only the content with HTMX.",
+  "settings": [
+    {"name": "accent", "label": {"en": "Accent colour", "nl": "Accentkleur"}, "type": "select", "options": ["vermilion", "ink", "forest", "plum"], "default": "vermilion"},
+    {"name": "text", "label": {"en": "Text typeface", "nl": "Lettertype van de tekst"}, "type": "select", "options": ["serif", "sans"], "default": "serif"},
+    {"name": "measure", "label": {"en": "Width of the text column", "nl": "Breedte van de tekstkolom"}, "type": "number", "min": 32, "max": 52, "step": 1, "unit": "rem", "default": "42", "css": "--measure"}
+  ]
+}

@@ -1,0 +1,488 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%[1]s from %[2]s"
+msgstr "%[1]s van %[2]s"
+
+msgid "%d of %d"
+msgstr "%d van %d"
+
+msgid "Admin"
+msgstr "Beheer"
+
+msgid "Adults"
+msgstr "Volwassenen"
+
+msgid "Almost done: check your inbox and confirm your subscription."
+msgstr "Bijna klaar: kijk in je inbox en bevestig je inschrijving."
+
+msgid "Already registered?"
+msgstr "Al aangemeld?"
+
+msgid "Back to the home page"
+msgstr "Terug naar de startpagina"
+
+msgid "Children"
+msgstr "Kinderen"
+
+msgid "Comment"
+msgstr "Reactie"
+
+msgid "Comments"
+msgstr "Reacties"
+
+msgid "Comments (%d)"
+msgstr "Reacties (%d)"
+
+msgid "Comments are closed."
+msgstr "Reageren is gesloten."
+
+msgid "Comments are shown after approval."
+msgstr "Reacties verschijnen na goedkeuring."
+
+msgid "Comments were closed when you posted. Please try again."
+msgstr "De reacties waren gesloten toen je je reactie verstuurde. Probeer het nog eens."
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "E-mail address"
+msgstr "E-mailadres"
+
+msgid "E-mail address (optional)"
+msgstr "E-mailadres (optioneel)"
+
+msgid "Free"
+msgstr "Gratis"
+
+msgid "Internal Server Error"
+msgstr "Interne serverfout"
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Leave a comment"
+msgstr "Laat een reactie achter"
+
+msgid "Look up your registration"
+msgstr "Zoek je aanmelding op"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Never shown on the website."
+msgstr "Wordt nooit op de website getoond."
+
+msgid "No comments yet."
+msgstr "Nog geen reacties."
+
+msgid "None"
+msgstr "Geen"
+
+msgid "Not Found"
+msgstr "Niet gevonden"
+
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+msgid "Past"
+msgstr "Geweest"
+
+msgid "Service Unavailable"
+msgstr "Dienst niet beschikbaar"
+
+msgid "Something went wrong"
+msgstr "Er ging iets mis"
+
+msgid "Something went wrong. Please try again."
+msgstr "Er ging iets mis. Probeer het opnieuw."
+
+msgid "per child"
+msgstr "per kind"
+
+msgid "per person"
+msgstr "per persoon"
+
+msgid "Places left"
+msgstr "Plaatsen over"
+
+msgid "Please check your name, e-mail address and the number of places."
+msgstr "Controleer je naam, e-mailadres en het aantal plaatsen."
+
+msgid "Please choose one of the options."
+msgstr "Kies een van de antwoorden."
+
+msgid "Please fill in your name and a comment."
+msgstr "Vul je naam en een reactie in."
+
+msgid "Post comment"
+msgstr "Plaats reactie"
+
+msgid "Preview: this is not published yet."
+msgstr "Voorbeeld: dit is nog niet gepubliceerd."
+
+msgid "Price"
+msgstr "Prijs"
+
+msgid "Registration is closed."
+msgstr "Aanmelden is gesloten."
+
+msgid "Remarks (optional)"
+msgstr "Opmerkingen (optioneel)"
+
+msgid "Share"
+msgstr "Delen"
+
+msgid "Sign up"
+msgstr "Aanmelden"
+
+msgid "Sign up before"
+msgstr "Aanmelden vóór"
+
+msgid "Sorry, there are not enough places left."
+msgstr "Sorry, er zijn niet genoeg plaatsen meer."
+
+msgid "Subscribe"
+msgstr "Inschrijven"
+
+msgid "Team"
+msgstr "Team"
+
+msgid "Thank you for voting."
+msgstr "Bedankt voor je stem."
+
+msgid "Thank you for your comment."
+msgstr "Bedankt voor je reactie."
+
+msgid "Thank you, you are registered. We sent you a confirmation."
+msgstr "Bedankt, je bent aangemeld. We hebben je een bevestiging gestuurd."
+
+msgid "Thank you. Your comment is shown after approval."
+msgstr "Bedankt. Je reactie verschijnt na goedkeuring."
+
+msgid "That did not work. Please check your e-mail address or link."
+msgstr "Dat lukte niet. Controleer je e-mailadres of de link."
+
+msgid "There are no places left."
+msgstr "Er zijn geen plaatsen meer."
+
+msgid "This poll is closed."
+msgstr "Deze peiling is gesloten."
+
+msgid "Too many attempts. Please try again later."
+msgstr "Te veel pogingen. Probeer het later opnieuw."
+
+msgid "Too Many Requests"
+msgstr "Te veel verzoeken"
+
+msgid "Too many votes. Please try again later."
+msgstr "Te veel stemmen. Probeer het later opnieuw."
+
+msgid "Upcoming"
+msgstr "Binnenkort"
+
+msgid "Vote"
+msgstr "Stem"
+
+msgid "Votes: %d"
+msgstr "Stemmen: %d"
+
+msgid "Voting closes on %s."
+msgstr "Stemmen kan tot %s."
+
+msgid "Voting has closed."
+msgstr "Stemmen is gesloten."
+
+msgid "You already voted on this question."
+msgstr "Je hebt al gestemd op deze vraag."
+
+msgid "You are unsubscribed."
+msgstr "Je bent uitgeschreven."
+
+msgid "You posted several comments already. Please try again later."
+msgstr "Je hebt al meerdere reacties geplaatst. Probeer het later opnieuw."
+
+msgid "You receive an e-mail to confirm your address. Every newsletter has a link to unsubscribe."
+msgstr "Je ontvangt een e-mail om je adres te bevestigen. Elke nieuwsbrief heeft een link om je uit te schrijven."
+
+msgid "your choice"
+msgstr "jouw keuze"
+
+msgid "Your registration code is %s."
+msgstr "Je aanmeldcode is %s."
+
+msgid "Your subscription is confirmed."
+msgstr "Je inschrijving is bevestigd."
+
+msgid "A new message waits for approval."
+msgstr "Een nieuw bericht wacht op goedkeuring."
+
+msgid "A new message was posted."
+msgstr "Er is een nieuw bericht geplaatst."
+
+msgid "Page:"
+msgstr "Pagina:"
+
+msgid "Review:"
+msgstr "Beoordelen:"
+
+msgid "Please confirm your subscription"
+msgstr "Bevestig je inschrijving voor de nieuwsbrief"
+
+msgid "Hello %s,"
+msgstr "Hallo %s,"
+
+msgid "Thank you for subscribing to our newsletter. Please confirm your e-mail address with the link below."
+msgstr "Dank je wel voor je inschrijving voor onze nieuwsbrief. Bevestig je e-mailadres met de link hieronder."
+
+msgid "If you did not subscribe, you can ignore this message."
+msgstr "Heb je je niet ingeschreven? Dan kun je dit bericht negeren."
+
+msgid "Registration cancelled"
+msgstr "Aanmelding geannuleerd"
+
+msgid "Your registration for %s is cancelled."
+msgstr "Je aanmelding voor %s is geannuleerd."
+
+msgid "Registration code"
+msgstr "Aanmeldcode"
+
+msgid "You already paid; we will contact you about a refund."
+msgstr "Je had al betaald; we nemen contact met je op over terugbetaling."
+
+msgid "Registration"
+msgstr "Aanmelding"
+
+msgid "Thank you for registering for %s."
+msgstr "Bedankt voor je aanmelding voor %s."
+
+msgid "Total"
+msgstr "Totaal"
+
+msgid "Please pay using:"
+msgstr "Betaal via:"
+
+msgid "View or cancel your registration:"
+msgstr "Bekijk of annuleer je aanmelding:"
+
+msgid "Your registration is cancelled."
+msgstr "Je aanmelding is geannuleerd."
+
+msgid "Bluesky"
+msgstr "Bluesky"
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Mastodon"
+msgstr "Mastodon"
+
+msgid "Not found"
+msgstr "Niet gevonden"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "Telegram"
+msgstr "Telegram"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "TikTok"
+msgstr "TikTok"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "X"
+msgstr "X"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Optional, never shown on the website."
+msgstr "Niet verplicht, nooit zichtbaar op de website."
+
+msgid "Remarks"
+msgstr "Opmerkingen"
+
+msgid "Allergies, accessibility, questions…"
+msgstr "Allergieën, toegankelijkheid, vragen…"
+
+msgid "The e-mail address you signed up with"
+msgstr "Het e-mailadres waarmee je je hebt aangemeld"
+
+msgid "you@example.com"
+msgstr "jij@voorbeeld.nl"
+
+msgid "Too many searches in a short time. Wait a moment and try again."
+msgstr "Te veel zoekopdrachten in korte tijd. Wacht even en probeer het opnieuw."
+
+msgid "K7Q4-9M2X"
+msgstr "K7Q4-9M2X"
+
+# The editorial theme (templates/editorial).
+msgid "This page does not exist"
+msgstr "Deze pagina bestaat niet"
+
+msgid "It may have moved, or the address has a typo. Search for it, or start again from the front page."
+msgstr "Misschien is ze verplaatst, of staat er een typefout in het adres. Zoek ernaar, of begin opnieuw op de voorpagina."
+
+msgid "Search the site"
+msgstr "Zoek op de site"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Write a message"
+msgstr "Schrijf een bericht"
+
+msgid "Thank you for your message."
+msgstr "Bedankt voor je bericht."
+
+msgid "Thank you. Your message is shown after approval."
+msgstr "Bedankt. Je bericht verschijnt na goedkeuring."
+
+msgid "Please fill in your name and a message."
+msgstr "Vul je naam en een bericht in."
+
+msgid "You posted several messages already. Please try again later."
+msgstr "Je hebt al een aantal berichten geplaatst. Probeer het later opnieuw."
+
+msgid "New messages were closed when you posted. Please try again."
+msgstr "Nieuwe berichten waren gesloten toen je plaatste. Probeer het opnieuw."
+
+msgid "New messages are closed."
+msgstr "Nieuwe berichten zijn gesloten."
+
+msgid "Messages are shown after approval."
+msgstr "Berichten verschijnen na goedkeuring."
+
+msgid "Send"
+msgstr "Versturen"
+
+msgid "Messages"
+msgstr "Berichten"
+
+msgid "No messages yet."
+msgstr "Nog geen berichten."
+
+msgid "More messages"
+msgstr "Meer berichten"
+
+msgid "Newer"
+msgstr "Nieuwer"
+
+msgid "Older"
+msgstr "Ouder"
+
+msgid "Where"
+msgstr "Waar"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "No past events."
+msgstr "Geen eerdere evenementen."
+
+msgid "Nothing planned at the moment."
+msgstr "Er staat op dit moment niets gepland."
+
+msgid "Follow this list:"
+msgstr "Volg deze lijst:"
+
+msgid "Skip to the content"
+msgstr "Naar de inhoud"
+
+msgid "Preview of revision %d."
+msgstr "Voorbeeld van versie %d."
+
+msgid "Preview of revision %d (not published)."
+msgstr "Voorbeeld van versie %d (niet gepubliceerd)."
+
+msgid "Show the published version"
+msgstr "Toon de gepubliceerde versie"
+
+msgid "Social media"
+msgstr "Sociale media"
+
+msgid "Latest news"
+msgstr "Laatste nieuws"
+
+msgid "All news"
+msgstr "Al het nieuws"
+
+msgid "Coming up"
+msgstr "Binnenkort"
+
+msgid "Full agenda"
+msgstr "Volledige agenda"
+
+msgid "From the blog"
+msgstr "Uit het blog"
+
+msgid "All blog posts"
+msgstr "Alle blogberichten"
+
+msgid "Poll"
+msgstr "Peiling"
+
+msgid "No polls yet."
+msgstr "Nog geen peilingen."
+
+msgid "Categories"
+msgstr "Categorieën"
+
+msgid "Nothing has been published here yet."
+msgstr "Hier is nog niets gepubliceerd."
+
+msgid "Edit this page"
+msgstr "Bewerk deze pagina"
+
+msgid "Sections"
+msgstr "Rubrieken"
+
+msgid "Fill in the code from your confirmation to see or cancel your registration."
+msgstr "Vul de code uit je bevestiging in om je aanmelding te bekijken of te annuleren."
+
+msgid "No registration has the code %s."
+msgstr "Er is geen aanmelding met de code %s."
+
+msgid "Look up"
+msgstr "Opzoeken"
+
+msgid "Registered on"
+msgstr "Aangemeld op"
+
+msgid "Cancel registration"
+msgstr "Aanmelding annuleren"
+
+msgid "That e-mail address does not match this registration."
+msgstr "Dat e-mailadres hoort niet bij deze aanmelding."
+
+msgid "This registration is cancelled."
+msgstr "Deze aanmelding is geannuleerd."
+
+msgid "%d result for “%s”"
+msgid_plural "%d results for “%s”"
+msgstr[0] "%d resultaat voor “%s”"
+msgstr[1] "%d resultaten voor “%s”"

@@ -1,0 +1,74 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+<!doctype html>
+<html lang="{{.Locale}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{/*
+        The title, description, canonical and alternate links, sharing tags,
+        icons, feeds and structured data of the page: WebThings writes them
+        (core's head region), as the theme has no regions/head.gohtml.
+    */}}
+    {{slot "head"}}
+    {{/*
+        The box that takes the place of a part of the page that failed
+        (go-partial), the layout of the module components (remove
+        webthings.css to style them yourself), site.css, and last the accent
+        colour chosen under Theme, as --accent (see theme.json).
+    */}}
+    {{styles "webthings.css" "site.css"}}
+</head>
+<body>
+    <header>
+        <a href="{{.Site.HomeURL}}">
+            {{with .Site.LogoURL}}<img src="{{.}}" alt="">{{end}}
+            {{.Site.Name}}
+        </a>
+        {{with .Site.Tagline}}<p>{{.}}</p>{{end}}
+
+        <nav>
+            {{range .Menu}}
+                <a id="{{.ElementID}}" href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a>
+                {{range .Children}}
+                    <a id="{{.ElementID}}" href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a>
+                {{end}}
+            {{end}}
+        </nav>
+
+        <nav>
+            {{range .Languages}}
+                <a href="{{.URL}}" hreflang="{{.Locale}}" {{if .Active}}aria-current="true"{{end}}>{{.Locale}}</a>
+            {{end}}
+        </nav>
+
+        <form action="{{searchURL}}" method="get" role="search">
+            <input type="search" name="q" aria-label="Search">
+        </form>
+    </header>
+
+    {{with .Revision}}
+        <p role="status">
+            Preview of revision {{.Number}}{{if not .Published}} (not published){{end}}.
+            <a href="{{.PublishedURL}}">Show the published version</a>
+        </p>
+    {{end}}
+    {{with .Editor}}<a href="{{.EditURL}}">Edit</a>{{end}}
+
+    {{content}}
+
+    <footer>
+        {{with .Site.Footer}}<div class="site-footer-text">{{.}}</div>{{end}}
+        {{with .Site.Address}}<address>{{.}}</address>{{end}}
+        {{with .Site.Email}}<a href="mailto:{{.}}">{{.}}</a>{{end}}
+        {{with .Site.Phone}}<p>{{.}}</p>{{end}}
+        {{with .Site.Profiles}}
+            <nav aria-label="Social media">
+                {{range .}}<a href="{{.URL}}" rel="me">{{.Label}}</a> {{end}}
+            </nav>
+        {{end}}
+
+        {{/* The newsletter page shows the signup itself. */}}
+        {{if ne .Module "newsletter"}}{{newsletterForm "newsletter"}}{{end}}
+    </footer>
+</body>
+</html>

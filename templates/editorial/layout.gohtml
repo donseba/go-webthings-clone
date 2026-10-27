@@ -1,0 +1,113 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+{{- /*
+    The editorial theme: one column of text under a newspaper masthead.
+
+    The theme's settings (theme.json) need no style attribute or <style>
+    element, so the page works under a Content-Security-Policy without
+    'unsafe-inline' for styles. The select lists are data attributes that
+    site.css reads; the width of the text column, a number, is --measure in
+    the values stylesheet that {{styles}} links after site.css. The
+    accent stays a choice of four rather than a colour picker: each is a
+    designed pair of a light and a dark shade whose contrast with the text
+    passes WCAG AA in both modes, which a free colour could not promise.
+
+    With htmx, which site.js imports from the site's import map
+    (importmap.json, vendored in assets/vendor), links and forms swap only
+    <main id="content">; the regions (head, menu, languages, editor) follow
+    out of band. Without JavaScript every link and form loads a whole page.
+*/ -}}
+<!doctype html>
+<html lang="{{.Locale}}" data-accent="{{.Theme.Values.accent}}" data-text="{{.Theme.Values.text}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    {{/*
+        The title, description, canonical and alternate links, sharing tags,
+        icons, feeds and structured data of the page: WebThings writes them
+        (core's head region), as the theme has no regions/head.gohtml.
+    */}}
+    {{slot "head"}}
+    {{/*
+        The box that takes the place of a part of the page that failed
+        (go-partial), the layout of the module components, coloured by
+        site.css, and last the width of the text column, as editors set it
+        (theme.json).
+    */}}
+    {{styles "webthings.css" "site.css"}}
+    {{/* The names site.js imports: htmx, and go-partial's clients that core adds. */}}
+    {{importmap}}
+    {{assetScript "site.js" "type" "module"}}
+</head>
+{{/*
+    Every link and form inside swaps <main id="content"> and scrolls to the
+    top; submit buttons are disabled while their form is sent. A 5xx answer
+    is not swapped into the page: a link that gets one, or no answer, loads
+    as a whole page instead, and a form shows the server's error page, so
+    the visitor sees what went wrong (go-partial's clientAttrs;
+    reloadOnError needs its interactions client, which site.js imports).
+*/}}
+<body{{clientAttrs runtime "inherit" "true" "boost" "on" "target" "#content" "swap" "outerHTML showTarget:body"
+          "disableWhileRequest" "find button[type='submit']" "keepOnServerError" "true" "reloadOnError" "true"}}>
+    <a class="skip-link" href="#content"{{noBoost runtime}}>{{tl localizer "Skip to the content"}}</a>
+
+    {{with .Revision}}
+        <p class="preview-bar" role="status">
+            {{if .Published}}{{tl localizer "Preview of revision %d." .Number}}{{else}}{{tl localizer "Preview of revision %d (not published)." .Number}}{{end}}
+            <a href="{{.PublishedURL}}"{{noBoost runtime}}>{{tl localizer "Show the published version"}}</a>
+        </p>
+    {{end}}
+
+    <header class="masthead">
+        <div class="masthead__bar">
+            {{slot "languages"}}
+
+            <form class="masthead__search" action="{{searchURL}}" method="get" role="search">
+                <label class="visually-hidden" for="masthead-search">{{tl localizer "Search"}}</label>
+                <input id="masthead-search" type="search" name="q" placeholder="{{tl localizer "Search"}}">
+                <button class="masthead__search-button" type="submit">{{tl localizer "Search"}}</button>
+            </form>
+        </div>
+
+        <a class="masthead__title" href="{{.Site.HomeURL}}">
+            {{with .Site.LogoURL}}<img class="masthead__logo" src="{{.}}" alt="">{{end}}
+            <span>{{.Site.Name}}</span>
+        </a>
+        {{with .Site.Tagline}}<p class="masthead__tagline">{{.}}</p>{{end}}
+
+        {{slot "menu"}}
+    </header>
+
+    {{slot "editor"}}
+
+    {{content}}
+
+    <footer class="colophon">
+        {{/* The newsletter signup; fragments/newsletter.gohtml leaves the newsletter's own page out. */}}
+        {{requiredSlot "newsletter"}}
+
+        <div class="colophon__columns">
+            <div>
+                <p class="colophon__name">{{.Site.Name}}</p>
+                {{with .Site.Footer}}<div class="colophon__text">{{.}}</div>{{end}}
+            </div>
+
+            {{if or .Site.Address .Site.Email .Site.Phone .Site.Profiles}}
+                <div>
+                    {{with .Site.Address}}<address>{{.}}</address>{{end}}
+                    {{with .Site.Email}}<p><a href="mailto:{{.}}">{{.}}</a></p>{{end}}
+                    {{with .Site.Phone}}<p>{{.}}</p>{{end}}
+
+                    {{with .Site.Profiles}}
+                        <nav class="colophon__profiles" aria-label="{{tl localizer "Social media"}}">
+                            {{range .}}<a href="{{.URL}}" rel="me">{{.Label}}</a>{{end}}
+                        </nav>
+                    {{end}}
+                </div>
+            {{end}}
+        </div>
+
+        {{with adminURL "admin.dashboard"}}<p class="colophon__admin"><a href="{{.}}"{{noBoost runtime}}>{{tl localizer "Admin"}}</a></p>{{end}}
+    </footer>
+</body>
+</html>

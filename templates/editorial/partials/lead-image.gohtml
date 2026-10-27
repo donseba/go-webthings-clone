@@ -1,0 +1,11 @@
+{{/* @dot github.com/donseba/go-webthings/modules/publishing.Post */}}
+{{- /*
+    The featured image of a post at the head of its page: the copy and
+    srcset the post gives, as wide as the column (42rem) or the screen.
+*/ -}}
+{{if .ImageURL}}
+    <figure class="lead-image">
+        <img src="{{.ImageURL}}" srcset="{{.ImageSrcset}}" sizes="(min-width: 46rem) 42rem, 100vw"
+             width="{{.ImageWidth}}" height="{{.ImageHeight}}" alt="{{alt .ImageURL}}">
+    </figure>
+{{end}}

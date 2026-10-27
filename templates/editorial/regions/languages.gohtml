@@ -1,0 +1,15 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+{{- /*
+    Another language loads the whole page ({{noBoost runtime}}): the
+    layout's lang and texts change with it. Always there, so a navigation
+    to a page in fewer languages updates it.
+*/ -}}
+<nav class="languages" id="languages" {{oobAttr}} aria-label="{{tl localizer "Language"}}">
+    {{if gt (len .Languages) 1}}
+        <ul>
+            {{range .Languages}}
+                <li><a href="{{.URL}}" hreflang="{{.Locale}}" lang="{{.Locale}}"{{noBoost runtime}} {{if .Active}}aria-current="true"{{end}}>{{.Locale}}</a></li>
+            {{end}}
+        </ul>
+    {{end}}
+</nav>

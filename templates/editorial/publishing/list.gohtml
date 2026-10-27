@@ -1,0 +1,43 @@
+{{/* @dot github.com/donseba/go-webthings/modules/publishing.ListView */}}
+{{/* @model View github.com/donseba/go-webthings/frontend.View */}}
+{{- /*
+    The posts of every publishing instance (news and blog), and of one
+    category at /<page>/category/<slug>. The type's folder, publishing/,
+    serves each instance without a list.gohtml of its own.
+*/ -}}
+<main id="content" class="column">
+    <header class="page-header">
+        {{with .Category}}
+            {{/* The list's own title: $.Title is the category's here. */}}
+            <p class="kicker"><a href="{{moduleURL View.Module}}">{{with View.Page}}{{.Title}}{{end}}</a></p>
+            <h1>{{.Title}}</h1>
+        {{else}}
+            <h1>{{.Title}}</h1>
+        {{end}}
+    </header>
+
+    {{with .Categories}}
+        <nav class="categories" aria-label="{{tl localizer "Categories"}}">
+            <ul>
+                {{range .}}
+                    <li><a href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a></li>
+                {{end}}
+            </ul>
+        </nav>
+    {{end}}
+
+    {{range .Posts}}
+        {{template "partials/post-summary.gohtml" .}}
+    {{else}}
+        <p class="empty">{{tl localizer "Nothing has been published here yet."}}</p>
+    {{end}}
+
+    {{/* The feeds of this list, a category's on its page; {{feedLinks}} in the head region names them for feed readers too. */}}
+    {{with feedURL "atom"}}
+        <p class="feeds">
+            {{tl localizer "Follow this list:"}}
+            <a href="{{.}}" type="application/atom+xml"{{noBoost runtime}}>Atom</a>
+            <a href="{{feedURL "rss"}}" type="application/rss+xml"{{noBoost runtime}}>RSS</a>
+        </p>
+    {{end}}
+</main>

@@ -1,0 +1,48 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+{{- /*
+    A page of the page tree. The home page adds the latest news and blog
+    posts, the next events and the newest poll below its own text.
+*/ -}}
+<main id="content" class="column">
+    <article class="page">
+        <header class="page-header{{if .IsHome}} page-header--home{{end}}">
+            <h1>{{.Title}}</h1>
+            {{with .Description}}<p class="standfirst">{{.}}</p>{{end}}
+        </header>
+
+        <div class="prose">{{.Body}}</div>
+    </article>
+
+    {{if .IsHome}}
+        {{with posts "news" 3}}
+            <section class="section" aria-labelledby="home-news">
+                <h2 class="section__title" id="home-news">{{tl localizer "Latest news"}}</h2>
+                {{range .}}{{template "partials/post-summary.gohtml" .}}{{end}}
+                {{with moduleURL "news"}}<p class="section__more"><a href="{{.}}">{{tl localizer "All news"}}</a></p>{{end}}
+            </section>
+        {{end}}
+
+        {{with events "agenda" 3}}
+            <section class="section" aria-labelledby="home-agenda">
+                <h2 class="section__title" id="home-agenda">{{tl localizer "Coming up"}}</h2>
+                {{range .}}{{template "partials/event-summary.gohtml" .}}{{end}}
+                {{with moduleURL "agenda"}}<p class="section__more"><a href="{{.}}">{{tl localizer "Full agenda"}}</a></p>{{end}}
+            </section>
+        {{end}}
+
+        {{with posts "blog" 3}}
+            <section class="section" aria-labelledby="home-blog">
+                <h2 class="section__title" id="home-blog">{{tl localizer "From the blog"}}</h2>
+                {{range .}}{{template "partials/post-summary.gohtml" .}}{{end}}
+                {{with moduleURL "blog"}}<p class="section__more"><a href="{{.}}">{{tl localizer "All blog posts"}}</a></p>{{end}}
+            </section>
+        {{end}}
+
+        {{/* The newest poll, with its vote form and results (the polls module's component). */}}
+        {{range polls "polls" 1}}
+            <aside class="section" aria-label="{{tl localizer "Poll"}}">
+                {{pollBox "polls" .ID}}
+            </aside>
+        {{end}}
+    {{end}}
+</main>

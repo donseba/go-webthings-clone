@@ -1,0 +1,5 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+{{- /* Always there, so a navigation can bring or take away the edit link. */ -}}
+<div class="editor" id="editor" {{oobAttr}}>
+    {{with .Editor}}<a class="editor__link" href="{{.EditURL}}"{{noBoost runtime}}>{{tl localizer "Edit this page"}}</a>{{end}}
+</div>

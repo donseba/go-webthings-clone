@@ -1,0 +1,46 @@
+{{/* @dot github.com/donseba/go-webthings/modules/publishing.Post */}}
+{{- /*
+    The comments below a post, named after the comments instance, so the
+    form returns the visitor here (#comments). Posting with htmx returns to
+    the post with the result, and the post answers with this fragment alone.
+    After a post with mistakes, form_field shows the visitor's values again
+    with the message at each field.
+*/ -}}
+<section class="comments" id="comments" aria-labelledby="comments-title">
+    {{$count := commentCount "comments" .ID}}
+    <h2 class="section__title" id="comments-title">{{if $count}}{{tl localizer "Comments (%d)" $count}}{{else}}{{tl localizer "Comments"}}{{end}}</h2>
+
+    {{range comments "comments" .ID}}
+        {{template "partials/comment.gohtml" .}}
+    {{else}}
+        <p class="empty">{{tl localizer "No comments yet."}}</p>
+    {{end}}
+
+    {{with commentResult "comments"}}
+        <p class="wt-notice" role="status">
+            {{if eq . "sent"}}{{tl localizer "Thank you for your comment."}}
+            {{else if eq . "pending"}}{{tl localizer "Thank you. Your comment is shown after approval."}}
+            {{else if eq . "closed"}}{{tl localizer "Comments were closed when you posted. Please try again."}}
+            {{else if eq . "throttled"}}{{tl localizer "You posted several comments already. Please try again later."}}
+            {{else}}{{tl localizer "Please fill in your name and a comment."}}{{end}}
+        </p>
+    {{end}}
+
+    {{if commentsClosed "comments"}}
+        <p class="empty">{{tl localizer "Comments are closed."}}</p>
+    {{else}}
+        {{/* The fields and their limits come from the module (comments.PostInput); form_open adds the htmx attributes. */}}
+        {{with commentInput "comments" .ID}}
+            {{form_open . "class" "comments__form" (submitAttrs runtime (commentURL "comments") "target" "#comments" "swap" "outerHTML")}}
+                <h3>{{tl localizer "Leave a comment"}}</h3>
+
+                {{form_field . "subject" nil}}
+                {{form_field . "name" nil}}
+                {{form_field . "email" nil}}
+                {{form_field . "body" nil}}
+
+                <p><button class="wt-button" type="submit">{{tl localizer "Post comment"}}</button></p>
+            {{form_close}}
+        {{end}}
+    {{end}}
+</section>

@@ -1,0 +1,48 @@
+version: '3'
+
+tasks:
+  default:
+    cmd: task --list
+
+  run:
+    desc: Run the website on http://127.0.0.1:8092 (admin at /admin/)
+    env:
+      WEBTHINGS_INSECURE_HTTP: 'true'
+      WEBTHINGS_ADMIN_EMAIL: '{{.WEBTHINGS_ADMIN_EMAIL | default "admin@example.test"}}'
+      WEBTHINGS_ADMIN_PASSWORD: '{{.WEBTHINGS_ADMIN_PASSWORD | default "change-me-please"}}'
+    cmd: go run .
+
+  dev:
+    desc: 'Run the website on http://127.0.0.1:8092 for development: templates reload on every request, errors in full, no page cache'
+    env:
+      WEBTHINGS_DEVELOPMENT: 'true'
+      WEBTHINGS_INSECURE_HTTP: 'true'
+      WEBTHINGS_ADMIN_EMAIL: '{{.WEBTHINGS_ADMIN_EMAIL | default "admin@example.test"}}'
+      WEBTHINGS_ADMIN_PASSWORD: '{{.WEBTHINGS_ADMIN_PASSWORD | default "change-me-please"}}'
+    cmd: go run .
+
+  templates:
+    desc: 'Write template starting points, for example: task templates -- agenda (or: site)'
+    cmd: go run . templates {{.CLI_ARGS}}
+
+  translations:
+    desc: Write the templates' texts to translations/translations.pot, then update each .po from it in Poedit
+    cmd: go run . translations
+
+  translations:check:
+    desc: 'List the texts each language misses and fail when any are missing (as CSV: task translations:check -- --csv)'
+    cmd: go run . translations check {{.CLI_ARGS}}
+
+  vendor:
+    desc: Vendor the themes' JavaScript packages (importmap.json) into assets/vendor with their licences and lock file
+    cmd: go generate -run importmap .
+
+  build:
+    desc: Build a static website binary (no cgo, no system libwebp), for example for Alpine or scratch images
+    env:
+      CGO_ENABLED: '0'
+    cmd: go build -tags nodynamic -o bin/website .
+
+  test:
+    desc: Start the website on a test database and render every kind of page with its templates (main_test.go)
+    cmd: go test ./...

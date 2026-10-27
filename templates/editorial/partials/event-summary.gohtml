@@ -1,0 +1,18 @@
+{{/* @dot github.com/donseba/go-webthings/modules/events.Event */}}
+{{- /* An event in a list: when and where, its title and summary. */ -}}
+<article class="summary summary--event">
+    <div class="summary__text">
+        <p class="kicker">
+            <time datetime="{{.Start.Format "2006-01-02T15:04:05Z07:00"}}">{{template "partials/when.gohtml" .When}}</time>
+            {{with .Location}}<span class="kicker__place">{{.}}</span>{{end}}
+        </p>
+        <h2 class="summary__title"><a href="{{.URL}}">{{.Title}}</a></h2>
+        {{with .Summary}}<p class="summary__excerpt">{{.}}</p>{{end}}
+    </div>
+
+    {{if .ImageURL}}
+        <img class="summary__image" src="{{image .ImageURL "320x240 crop"}}"
+             srcset="{{image .ImageURL "320x240 crop"}} 320w, {{image .ImageURL "640x480 crop"}} 640w"
+             sizes="(min-width: 40rem) 10rem, 100vw" width="320" height="240" loading="lazy" alt="{{alt .ImageURL}}">
+    {{end}}
+</article>

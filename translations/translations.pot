@@ -1,0 +1,914 @@
+# The texts of this website's templates, extracted by WebThings.
+# Do not edit: run the extraction again, then update each language's .po
+# file from this file (in Poedit: Translation → Update from POT File).
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WebThings\n"
+
+#: default/500.gohtml:9
+#: default/500.gohtml:16
+#: editorial/500.gohtml:15
+#: editorial/500.gohtml:28
+msgid "Something went wrong"
+msgstr ""
+
+#: default/500.gohtml:18
+#: editorial/404.gohtml:18
+#: editorial/500.gohtml:32
+msgid "Back to the home page"
+msgstr ""
+
+#: default/search.gohtml:9
+#: editorial/fragments/results.gohtml:8
+msgid "Too many searches in a short time. Wait a moment and try again."
+msgstr ""
+
+#: editorial/404.gohtml:6
+msgid "This page does not exist"
+msgstr ""
+
+#: editorial/404.gohtml:7
+msgid "It may have moved, or the address has a typo. Search for it, or start again from the front page."
+msgstr ""
+
+#: editorial/404.gohtml:11
+#: editorial/search.gohtml:13
+msgid "Search the site"
+msgstr ""
+
+#: editorial/404.gohtml:14
+#: editorial/layout.gohtml:51
+#: editorial/layout.gohtml:52
+#: editorial/layout.gohtml:53
+#: editorial/search.gohtml:9
+#: editorial/search.gohtml:17
+msgid "Search"
+msgstr ""
+
+#: editorial/comments/list.gohtml:13
+msgid "Write a message"
+msgstr ""
+
+#: editorial/comments/list.gohtml:15
+msgid "Thank you for your message."
+msgstr ""
+
+#: editorial/comments/list.gohtml:17
+msgid "Thank you. Your message is shown after approval."
+msgstr ""
+
+#: editorial/comments/list.gohtml:19
+msgid "Please fill in your name and a message."
+msgstr ""
+
+#: editorial/comments/list.gohtml:21
+msgid "You posted several messages already. Please try again later."
+msgstr ""
+
+#: editorial/comments/list.gohtml:23
+msgid "New messages were closed when you posted. Please try again."
+msgstr ""
+
+#: editorial/comments/list.gohtml:27
+msgid "New messages are closed."
+msgstr ""
+
+#: editorial/comments/list.gohtml:35
+msgid "Messages are shown after approval."
+msgstr ""
+
+#: editorial/comments/list.gohtml:37
+msgid "Send"
+msgstr ""
+
+#: editorial/comments/list.gohtml:42
+msgid "Messages"
+msgstr ""
+
+#: editorial/comments/list.gohtml:46
+msgid "No messages yet."
+msgstr ""
+
+#: editorial/comments/list.gohtml:51
+msgid "More messages"
+msgstr ""
+
+#: editorial/comments/list.gohtml:52
+msgid "Newer"
+msgstr ""
+
+#: editorial/comments/list.gohtml:53
+msgid "Older"
+msgstr ""
+
+#: editorial/events/event.gohtml:19
+msgid "Where"
+msgstr ""
+
+#: editorial/events/list.gohtml:6
+#: editorial/events/list.gohtml:13
+msgid "Past"
+msgstr ""
+
+#: editorial/events/list.gohtml:10
+msgid "Agenda"
+msgstr ""
+
+#: editorial/events/list.gohtml:12
+msgid "Upcoming"
+msgstr ""
+
+#: editorial/events/list.gohtml:20
+msgid "No past events."
+msgstr ""
+
+#: editorial/events/list.gohtml:20
+msgid "Nothing planned at the moment."
+msgstr ""
+
+#: editorial/events/list.gohtml:26
+#: editorial/publishing/list.gohtml:39
+msgid "Follow this list:"
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:11
+#: module:comments/thread.gohtml:5
+msgid "Comments (%d)"
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:11
+#: module:comments/thread.gohtml:5
+msgid "Comments"
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:16
+#: module:comments/thread.gohtml:36
+msgid "No comments yet."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:21
+#: module:comments/form.gohtml:9
+msgid "Thank you for your comment."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:22
+#: module:comments/form.gohtml:10
+msgid "Thank you. Your comment is shown after approval."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:23
+#: module:comments/form.gohtml:12
+msgid "Comments were closed when you posted. Please try again."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:24
+#: module:comments/form.gohtml:11
+msgid "You posted several comments already. Please try again later."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:25
+#: module:comments/form.gohtml:13
+msgid "Please fill in your name and a comment."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:30
+#: module:comments/form.gohtml:5
+msgid "Comments are closed."
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:35
+#: module:comments/form.gohtml:21
+msgid "Leave a comment"
+msgstr ""
+
+#: editorial/fragments/comments.gohtml:42
+#: module:comments/form.gohtml:29
+msgid "Post comment"
+msgstr ""
+
+#: editorial/fragments/newsletter.gohtml:16
+#: editorial/newsletter/signup.gohtml:15
+#: module:newsletter/form.gohtml:8
+msgid "Almost done: check your inbox and confirm your subscription."
+msgstr ""
+
+#: editorial/fragments/newsletter.gohtml:19
+#: editorial/newsletter/signup.gohtml:23
+#: editorial/registrations/registration.gohtml:32
+#: module:newsletter/form.gohtml:11
+#: module:registrations/form.gohtml:14
+msgid "Too many attempts. Please try again later."
+msgstr ""
+
+#: editorial/fragments/newsletter.gohtml:21
+#: editorial/newsletter/signup.gohtml:21
+#: module:newsletter/form.gohtml:12
+msgid "That did not work. Please check your e-mail address or link."
+msgstr ""
+
+#: editorial/fragments/newsletter.gohtml:27
+#: editorial/newsletter/signup.gohtml:13
+#: editorial/newsletter/signup.gohtml:32
+#: module:newsletter/form.gohtml:23
+msgid "Subscribe"
+msgstr ""
+
+#: editorial/fragments/results.gohtml:10
+msgid "%d result for “%s”"
+msgid_plural "%d results for “%s”"
+msgstr[0] ""
+msgstr[1] ""
+
+#: editorial/layout.gohtml:37
+msgid "Skip to the content"
+msgstr ""
+
+#: editorial/layout.gohtml:41
+msgid "Preview of revision %d."
+msgstr ""
+
+#: editorial/layout.gohtml:41
+msgid "Preview of revision %d (not published)."
+msgstr ""
+
+#: editorial/layout.gohtml:42
+msgid "Show the published version"
+msgstr ""
+
+#: editorial/layout.gohtml:87
+msgid "Social media"
+msgstr ""
+
+#: editorial/layout.gohtml:95
+msgid "Admin"
+msgstr ""
+
+#: editorial/newsletter/signup.gohtml:17
+#: module:newsletter/form.gohtml:9
+msgid "Your subscription is confirmed."
+msgstr ""
+
+#: editorial/newsletter/signup.gohtml:19
+#: module:newsletter/form.gohtml:10
+msgid "You are unsubscribed."
+msgstr ""
+
+#: editorial/newsletter/signup.gohtml:33
+#: module:newsletter/form.gohtml:26
+msgid "You receive an e-mail to confirm your address. Every newsletter has a link to unsubscribe."
+msgstr ""
+
+#: editorial/page.gohtml:19
+msgid "Latest news"
+msgstr ""
+
+#: editorial/page.gohtml:21
+msgid "All news"
+msgstr ""
+
+#: editorial/page.gohtml:27
+msgid "Coming up"
+msgstr ""
+
+#: editorial/page.gohtml:29
+msgid "Full agenda"
+msgstr ""
+
+#: editorial/page.gohtml:35
+msgid "From the blog"
+msgstr ""
+
+#: editorial/page.gohtml:37
+msgid "All blog posts"
+msgstr ""
+
+#: editorial/page.gohtml:43
+msgid "Poll"
+msgstr ""
+
+#: editorial/partials/comment.gohtml:14
+#: module:comments/thread.gohtml:24
+msgid "Team"
+msgstr ""
+
+#: editorial/polls/list.gohtml:11
+msgid "No polls yet."
+msgstr ""
+
+#: editorial/publishing/list.gohtml:19
+#: editorial/publishing/post.gohtml:20
+msgid "Categories"
+msgstr ""
+
+#: editorial/publishing/list.gohtml:31
+msgid "Nothing has been published here yet."
+msgstr ""
+
+#: editorial/regions/editor.gohtml:4
+msgid "Edit this page"
+msgstr ""
+
+#: editorial/regions/languages.gohtml:7
+msgid "Language"
+msgstr ""
+
+#: editorial/regions/menu.gohtml:8
+msgid "Sections"
+msgstr ""
+
+#: editorial/registrations/lookup.gohtml:6
+msgid "Fill in the code from your confirmation to see or cancel your registration."
+msgstr ""
+
+#: editorial/registrations/lookup.gohtml:9
+msgid "No registration has the code %s."
+msgstr ""
+
+#: editorial/registrations/lookup.gohtml:13
+msgid "Look up"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:5
+#: module:registrations/mail/confirmation.gohtml:3
+msgid "Registration"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:13
+#: module:registrations/form.gohtml:9
+msgid "Thank you, you are registered. We sent you a confirmation."
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:16
+#: module:registrations/forms
+#: module:registrations/mail/cancellation.gohtml:10
+#: module:registrations/mail/confirmation.gohtml:13
+msgid "Registration code"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:17
+#: module:comments/forms
+#: module:newsletter/forms
+#: module:registrations/forms
+msgid "Name"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:18
+#: module:registrations/forms
+#: module:registrations/mail/confirmation.gohtml:14
+msgid "Adults"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:19
+#: module:registrations/forms
+#: module:registrations/mail/confirmation.gohtml:16
+msgid "Children"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:20
+#: module:registrations/mail/confirmation.gohtml:19
+msgid "Total"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:21
+#: module:registrations/forms
+msgid "Remarks"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:22
+msgid "Registered on"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:25
+#: module:registrations/mail/confirmation.gohtml:23
+msgid "Please pay using:"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:29
+#: editorial/registrations/registration.gohtml:41
+msgid "Cancel registration"
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:30
+#: module:registrations/form.gohtml:13
+msgid "Your registration is cancelled."
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:31
+msgid "That e-mail address does not match this registration."
+msgstr ""
+
+#: editorial/registrations/registration.gohtml:35
+msgid "This registration is cancelled."
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "January"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "February"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "March"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "April"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "May"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "June"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "July"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "August"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "September"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "October"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "November"
+msgstr ""
+
+#: core:calendar
+msgctxt "month"
+msgid "December"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Jan"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Feb"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Mar"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Apr"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "May"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Jun"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Jul"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Aug"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Sep"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Oct"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Nov"
+msgstr ""
+
+#: core:calendar
+msgctxt "month-short"
+msgid "Dec"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Sunday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Monday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Tuesday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Wednesday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Thursday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Friday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day"
+msgid "Saturday"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Sun"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Mon"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Tue"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Wed"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Thu"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Fri"
+msgstr ""
+
+#: core:calendar
+msgctxt "day-short"
+msgid "Sat"
+msgstr ""
+
+#: core:calendar
+msgctxt "time"
+msgid "AM"
+msgstr ""
+
+#: core:calendar
+msgctxt "time"
+msgid "PM"
+msgstr ""
+
+#: core:calendar
+msgctxt "date"
+msgid "short"
+msgstr ""
+
+#: core:calendar
+msgctxt "date"
+msgid "medium"
+msgstr ""
+
+#: core:calendar
+msgctxt "date"
+msgid "long"
+msgstr ""
+
+#: core:calendar
+msgctxt "date"
+msgid "full"
+msgstr ""
+
+#: core:calendar
+msgctxt "date"
+msgid "time"
+msgstr ""
+
+#: core:site/share.gohtml:3
+#: core:site/share.gohtml:4
+msgid "Share"
+msgstr ""
+
+#: core:texts
+msgid "Not found"
+msgstr ""
+
+#: core:texts
+msgid "%[1]s from %[2]s"
+msgstr ""
+
+#: core:texts
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: core:texts
+msgid "Not Found"
+msgstr ""
+
+#: core:texts
+msgid "Too Many Requests"
+msgstr ""
+
+#: core:texts
+msgid "Internal Server Error"
+msgstr ""
+
+#: core:texts
+msgid "Service Unavailable"
+msgstr ""
+
+#: core:texts
+msgid "Facebook"
+msgstr ""
+
+#: core:texts
+msgid "Instagram"
+msgstr ""
+
+#: core:texts
+msgid "LinkedIn"
+msgstr ""
+
+#: core:texts
+msgid "X"
+msgstr ""
+
+#: core:texts
+msgid "Mastodon"
+msgstr ""
+
+#: core:texts
+msgid "Bluesky"
+msgstr ""
+
+#: core:texts
+msgid "Threads"
+msgstr ""
+
+#: core:texts
+msgid "YouTube"
+msgstr ""
+
+#: core:texts
+msgid "TikTok"
+msgstr ""
+
+#: core:texts
+msgid "Pinterest"
+msgstr ""
+
+#: core:texts
+msgid "GitHub"
+msgstr ""
+
+#: core:texts
+msgid "WhatsApp"
+msgstr ""
+
+#: core:texts
+msgid "Telegram"
+msgstr ""
+
+#: core:texts
+msgid "E-mail"
+msgstr ""
+
+#: module:comments/form.gohtml:27
+msgid "Comments are shown after approval."
+msgstr ""
+
+#: module:comments/forms
+#: module:newsletter/forms
+#: module:registrations/forms
+msgid "E-mail address"
+msgstr ""
+
+#: module:comments/forms
+msgid "Optional, never shown on the website."
+msgstr ""
+
+#: module:comments/forms
+msgid "Message"
+msgstr ""
+
+#: module:comments/mail/notify.gohtml:6
+msgid "A new message waits for approval."
+msgstr ""
+
+#: module:comments/mail/notify.gohtml:6
+msgid "A new message was posted."
+msgstr ""
+
+#: module:comments/mail/notify.gohtml:12
+msgid "Page:"
+msgstr ""
+
+#: module:comments/mail/notify.gohtml:14
+msgid "Review:"
+msgstr ""
+
+#: module:newsletter/forms
+msgid "you@example.com"
+msgstr ""
+
+#: module:newsletter/mail/confirmation.gohtml:3
+msgid "Please confirm your subscription"
+msgstr ""
+
+#: module:newsletter/mail/confirmation.gohtml:6
+#: module:registrations/mail/cancellation.gohtml:6
+#: module:registrations/mail/confirmation.gohtml:6
+msgid "Hello %s,"
+msgstr ""
+
+#: module:newsletter/mail/confirmation.gohtml:9
+msgid "Thank you for subscribing to our newsletter. Please confirm your e-mail address with the link below."
+msgstr ""
+
+#: module:newsletter/mail/confirmation.gohtml:13
+msgid "If you did not subscribe, you can ignore this message."
+msgstr ""
+
+#: module:polls/box.gohtml:8
+msgid "Thank you for voting."
+msgstr ""
+
+#: module:polls/box.gohtml:9
+msgid "You already voted on this question."
+msgstr ""
+
+#: module:polls/box.gohtml:10
+msgid "This poll is closed."
+msgstr ""
+
+#: module:polls/box.gohtml:11
+msgid "Too many votes. Please try again later."
+msgstr ""
+
+#: module:polls/box.gohtml:12
+msgid "Please choose one of the options."
+msgstr ""
+
+#: module:polls/box.gohtml:23
+msgid "Vote"
+msgstr ""
+
+#: module:polls/box.gohtml:31
+msgid "your choice"
+msgstr ""
+
+#: module:polls/box.gohtml:38
+msgid "Votes: %d"
+msgstr ""
+
+#: module:polls/box.gohtml:42
+msgid "Voting has closed."
+msgstr ""
+
+#: module:polls/box.gohtml:44
+msgid "Voting closes on %s."
+msgstr ""
+
+#: module:registrations/form.gohtml:5
+#: module:registrations/form.gohtml:53
+msgid "Sign up"
+msgstr ""
+
+#: module:registrations/form.gohtml:10
+msgid "Your registration code is %s."
+msgstr ""
+
+#: module:registrations/form.gohtml:11
+msgid "Sorry, there are not enough places left."
+msgstr ""
+
+#: module:registrations/form.gohtml:12
+#: module:registrations/form.gohtml:58
+msgid "Registration is closed."
+msgstr ""
+
+#: module:registrations/form.gohtml:15
+msgid "Please check your name, e-mail address and the number of places."
+msgstr ""
+
+#: module:registrations/form.gohtml:20
+msgid "Price"
+msgstr ""
+
+#: module:registrations/form.gohtml:22
+msgid "Free"
+msgstr ""
+
+#: module:registrations/form.gohtml:22
+msgid "per person"
+msgstr ""
+
+#: module:registrations/form.gohtml:23
+msgid "per child"
+msgstr ""
+
+#: module:registrations/form.gohtml:27
+msgid "Places left"
+msgstr ""
+
+#: module:registrations/form.gohtml:28
+msgid "None"
+msgstr ""
+
+#: module:registrations/form.gohtml:28
+msgid "%d of %d"
+msgstr ""
+
+#: module:registrations/form.gohtml:32
+msgid "Sign up before"
+msgstr ""
+
+#: module:registrations/form.gohtml:56
+msgid "There are no places left."
+msgstr ""
+
+#: module:registrations/form.gohtml:62
+msgid "Already registered?"
+msgstr ""
+
+#: module:registrations/form.gohtml:62
+msgid "Look up your registration"
+msgstr ""
+
+#: module:registrations/forms
+msgid "Allergies, accessibility, questions…"
+msgstr ""
+
+#: module:registrations/forms
+msgid "The e-mail address you signed up with"
+msgstr ""
+
+#: module:registrations/forms
+msgid "K7Q4-9M2X"
+msgstr ""
+
+#: module:registrations/mail/cancellation.gohtml:3
+msgid "Registration cancelled"
+msgstr ""
+
+#: module:registrations/mail/cancellation.gohtml:8
+msgid "Your registration for %s is cancelled."
+msgstr ""
+
+#: module:registrations/mail/cancellation.gohtml:13
+msgid "You already paid; we will contact you about a refund."
+msgstr ""
+
+#: module:registrations/mail/confirmation.gohtml:8
+msgid "Thank you for registering for %s."
+msgstr ""
+
+#: module:registrations/mail/confirmation.gohtml:32
+msgid "View or cancel your registration:"
+msgstr ""

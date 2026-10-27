@@ -1,0 +1,22 @@
+{{/* @dot github.com/donseba/go-webthings/modules/publishing.Post */}}
+{{- /*
+    A post in a list: its date, title, excerpt and a small image beside the
+    text on wide screens. The image is a copy cut around its focal point,
+    with a srcset for sharp screens.
+*/ -}}
+<article class="summary">
+    <div class="summary__text">
+        {{if not .Date.IsZero}}<p class="kicker"><time datetime="{{.Date.Format "2006-01-02"}}">{{date .Date "long"}}</time></p>{{end}}
+        <h2 class="summary__title"><a href="{{.URL}}">{{.Title}}</a></h2>
+        {{with .Excerpt}}<p class="summary__excerpt">{{.}}</p>{{end}}
+        {{with .Categories}}
+            <p class="tags">{{range .}}<a href="{{.URL}}">{{.Title}}</a>{{end}}</p>
+        {{end}}
+    </div>
+
+    {{if .ImageURL}}
+        <img class="summary__image" src="{{image .ImageURL "320x240 crop"}}"
+             srcset="{{image .ImageURL "320x240 crop"}} 320w, {{image .ImageURL "640x480 crop"}} 640w"
+             sizes="(min-width: 40rem) 10rem, 100vw" width="320" height="240" loading="lazy" alt="{{alt .ImageURL}}">
+    {{end}}
+</article>

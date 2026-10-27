@@ -1,0 +1,24 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.SearchView */}}
+{{- /*
+    The search screen. The field asks for the results while the visitor
+    types; the answer is fragments/results.gohtml with the regions out of
+    band, so the tab's title and the language links follow the query, and
+    the address follows too. Without JavaScript the form loads the page
+    with ?q=.
+*/ -}}
+<main id="content" class="column">
+    <header class="page-header">
+        <h1>{{tl localizer "Search"}}</h1>
+    </header>
+
+    <form class="search-form" action="{{.URL}}" method="get" role="search">
+        <label for="search-query">{{tl localizer "Search the site"}}</label>
+        <div class="search-form__row">
+            <input id="search-query" class="wt-form__input" type="search" name="q" value="{{.Query}}" autocomplete="off"
+                {{- liveAttrs runtime .URL "target" "#results" "swap" "outerHTML" "replaceURL" "true"}}>
+            <button class="wt-button" type="submit">{{tl localizer "Search"}}</button>
+        </div>
+    </form>
+
+    {{requiredSlot "results"}}
+</main>

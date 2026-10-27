@@ -1,0 +1,32 @@
+{{/* @dot github.com/donseba/go-webthings/modules/events.ListView */}}
+{{/* @model View github.com/donseba/go-webthings/frontend.View */}}
+{{- /* The upcoming events, soonest first, or the past ones (.Past), newest first. */ -}}
+<main id="content" class="column">
+    <header class="page-header">
+        {{if .Past}}<p class="kicker">{{tl localizer "Past"}}</p>{{end}}
+        <h1>{{.Title}}</h1>
+    </header>
+
+    <nav class="categories" aria-label="{{tl localizer "Agenda"}}">
+        <ul>
+            <li><a href="{{.UpcomingURL}}" {{if not .Past}}aria-current="page"{{end}}>{{tl localizer "Upcoming"}}</a></li>
+            <li><a href="{{.PastURL}}" {{if .Past}}aria-current="page"{{end}}>{{tl localizer "Past"}}</a></li>
+        </ul>
+    </nav>
+
+    {{range .Events}}
+        {{template "partials/event-summary.gohtml" .}}
+    {{else}}
+        <p class="empty">{{if .Past}}{{tl localizer "No past events."}}{{else}}{{tl localizer "Nothing planned at the moment."}}{{end}}</p>
+    {{end}}
+
+    {{if not .Past}}
+        {{with feedURL "atom"}}
+            <p class="feeds">
+                {{tl localizer "Follow this list:"}}
+                <a href="{{.}}" type="application/atom+xml"{{noBoost runtime}}>Atom</a>
+                <a href="{{feedURL "rss"}}" type="application/rss+xml"{{noBoost runtime}}>RSS</a>
+            </p>
+        {{end}}
+    {{end}}
+</main>

@@ -1,0 +1,15 @@
+{{/* @dot github.com/donseba/go-webthings/modules/registrations.LookupView */}}
+{{- /* The registrations instance's page: find a registration by its code. */ -}}
+<main id="content" class="column">
+    <header class="page-header">
+        <h1>{{.Title}}</h1>
+        <p class="standfirst">{{tl localizer "Fill in the code from your confirmation to see or cancel your registration."}}</p>
+    </header>
+
+    {{if .NotFound}}<p class="wt-notice" role="status">{{tl localizer "No registration has the code %s." .Code}}</p>{{end}}
+
+    {{form_open .Form}}
+        {{form_field .Form "code" nil}}
+        <p><button class="wt-button" type="submit">{{tl localizer "Look up"}}</button></p>
+    {{form_close}}
+</main>

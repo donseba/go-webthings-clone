@@ -1,0 +1,16 @@
+/* Your styles. The templates are plain HTML with every available field.
+   --accent is the colour chosen in the admin under Theme (see theme.json):
+   {{themeStyle}} in the layout links a stylesheet that sets it after this
+   one, rather than a style attribute, which a Content-Security-Policy
+   without 'unsafe-inline' ignores. This value is only the fallback. */
+:root { --accent: #2563eb; }
+
+a { color: var(--accent); }
+
+/* The components' stylesheet (webthings.css) takes its colours and spacing
+   from these properties. */
+body {
+    --wt-accent: var(--accent);
+    --wt-radius: 0.375rem;
+    --wt-gap: 1rem;
+}
