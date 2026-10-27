@@ -1,6 +1,6 @@
 module github.com/donseba/go-webthings-clone
 
-go 1.27.1
+go 1.27.3
 
 require (
 	github.com/donseba/go-importmap v1.3.0
